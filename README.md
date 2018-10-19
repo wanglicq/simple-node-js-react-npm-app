@@ -12,3 +12,24 @@ The `jenkins` directory contains an example of the `Jenkinsfile` (i.e. Pipeline)
 you'll be creating yourself during the tutorial and the `scripts` subdirectory
 contains shell scripts with commands that are executed when Jenkins processes
 the "Test" and "Deliver" stages of your Pipeline.
+
+
+# start jenkinsci blue ocean in docker
+docker run \
+  -d \
+  --rm \
+  -u root \
+  -p 8080:8080 \
+  -v jenkins-data:/var/jenkins_home \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v "$HOME":/home \
+  jenkinsci/blueocean
+  
+  
+# docker check running container
+docker ps
+
+#  run command in a running container
+docker exec -it <containerID> /bin/bash
+
+
